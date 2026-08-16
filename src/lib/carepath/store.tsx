@@ -108,7 +108,7 @@ const initialDocs: CareDoc[] = [
       { label: "Valid till", value: "30 Aug 2026" },
     ],
     verified: false,
-    checksum: "c740be18a9d3ف".replace("ف", "5") + "e2b64c8917af03d5be29714cc6a8035d1f9b7e24",
+    checksum: "c740be18a9d35e2b64c8917af03d5be29714cc6a8035d1f9b7e2481ac53d0629",
     sharedWithCaregiver: false,
     caregiverAuthorized: true,
   },
