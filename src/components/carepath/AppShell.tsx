@@ -193,7 +193,7 @@ function SideLink({
   count,
   onClick,
 }: {
-  to: LinkProps["to"];
+  to: NonNullable<LinkProps["to"]>;
   label: string;
   Icon: React.ComponentType<{ className?: string }>;
   active: boolean;

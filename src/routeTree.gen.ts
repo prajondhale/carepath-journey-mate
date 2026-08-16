@@ -16,6 +16,7 @@ import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as JourneyRouteImport } from './routes/journey'
 import { Route as LanguageRouteImport } from './routes/language'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as TicketsRouteImport } from './routes/tickets'
 
@@ -54,6 +55,11 @@ const NotificationsRoute = NotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SecurityRoute = SecurityRouteImport.update({
   id: '/security',
   path: '/security',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/journey': typeof JourneyRoute
   '/language': typeof LanguageRoute
   '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
   '/security': typeof SecurityRoute
   '/tickets': typeof TicketsRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/journey': typeof JourneyRoute
   '/language': typeof LanguageRoute
   '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
   '/security': typeof SecurityRoute
   '/tickets': typeof TicketsRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/journey': typeof JourneyRoute
   '/language': typeof LanguageRoute
   '/notifications': typeof NotificationsRoute
+  '/profile': typeof ProfileRoute
   '/security': typeof SecurityRoute
   '/tickets': typeof TicketsRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/journey'
     | '/language'
     | '/notifications'
+    | '/profile'
     | '/security'
     | '/tickets'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/journey'
     | '/language'
     | '/notifications'
+    | '/profile'
     | '/security'
     | '/tickets'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/journey'
     | '/language'
     | '/notifications'
+    | '/profile'
     | '/security'
     | '/tickets'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   JourneyRoute: typeof JourneyRoute
   LanguageRoute: typeof LanguageRoute
   NotificationsRoute: typeof NotificationsRoute
+  ProfileRoute: typeof ProfileRoute
   SecurityRoute: typeof SecurityRoute
   TicketsRoute: typeof TicketsRoute
 }
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/security': {
       id: '/security'
       path: '/security'
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   JourneyRoute: JourneyRoute,
   LanguageRoute: LanguageRoute,
   NotificationsRoute: NotificationsRoute,
+  ProfileRoute: ProfileRoute,
   SecurityRoute: SecurityRoute,
   TicketsRoute: TicketsRoute,
 }
