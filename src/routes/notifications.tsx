@@ -39,10 +39,6 @@ const CAT_LABEL = {
   security: "Security",
 };
 
-export default function NotificationsPage() {
-  return null;
-}
-
 function Notifications() {
   const { t, notifications, markRead, markAllRead, unreadCount } = useCarePath();
   const [tab, setTab] = useState<"all" | "patient" | "caregiver">("all");
