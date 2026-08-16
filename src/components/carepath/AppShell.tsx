@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState, type LinkProps } from "@tanstack/react-router";
 import {
   LayoutDashboard,
   FileText,
@@ -193,7 +193,7 @@ function SideLink({
   count,
   onClick,
 }: {
-  to: string;
+  to: LinkProps["to"];
   label: string;
   Icon: React.ComponentType<{ className?: string }>;
   active: boolean;
