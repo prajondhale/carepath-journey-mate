@@ -16,6 +16,7 @@ import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as JourneyRouteImport } from './routes/journey'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as SecurityRouteImport } from './routes/security'
+import { Route as TicketsRouteImport } from './routes/tickets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const SecurityRoute = SecurityRouteImport.update({
   path: '/security',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TicketsRoute = TicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/journey': typeof JourneyRoute
   '/notifications': typeof NotificationsRoute
   '/security': typeof SecurityRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/journey': typeof JourneyRoute
   '/notifications': typeof NotificationsRoute
   '/security': typeof SecurityRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/journey': typeof JourneyRoute
   '/notifications': typeof NotificationsRoute
   '/security': typeof SecurityRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/journey'
     | '/notifications'
     | '/security'
+    | '/tickets'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/journey'
     | '/notifications'
     | '/security'
+    | '/tickets'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/journey'
     | '/notifications'
     | '/security'
+    | '/tickets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   JourneyRoute: typeof JourneyRoute
   NotificationsRoute: typeof NotificationsRoute
   SecurityRoute: typeof SecurityRoute
+  TicketsRoute: typeof TicketsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SecurityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tickets': {
+      id: '/tickets'
+      path: '/tickets'
+      fullPath: '/tickets'
+      preLoaderRoute: typeof TicketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   JourneyRoute: JourneyRoute,
   NotificationsRoute: NotificationsRoute,
   SecurityRoute: SecurityRoute,
+  TicketsRoute: TicketsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
