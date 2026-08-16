@@ -14,6 +14,7 @@ import { Route as CaregiverRouteImport } from './routes/caregiver'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as JourneyRouteImport } from './routes/journey'
+import { Route as LanguageRouteImport } from './routes/language'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as TicketsRouteImport } from './routes/tickets'
@@ -43,6 +44,11 @@ const JourneyRoute = JourneyRouteImport.update({
   path: '/journey',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LanguageRoute = LanguageRouteImport.update({
+  id: '/language',
+  path: '/language',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
   '/journey': typeof JourneyRoute
+  '/language': typeof LanguageRoute
   '/notifications': typeof NotificationsRoute
   '/security': typeof SecurityRoute
   '/tickets': typeof TicketsRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
   '/journey': typeof JourneyRoute
+  '/language': typeof LanguageRoute
   '/notifications': typeof NotificationsRoute
   '/security': typeof SecurityRoute
   '/tickets': typeof TicketsRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
   '/journey': typeof JourneyRoute
+  '/language': typeof LanguageRoute
   '/notifications': typeof NotificationsRoute
   '/security': typeof SecurityRoute
   '/tickets': typeof TicketsRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/documents'
     | '/journey'
+    | '/language'
     | '/notifications'
     | '/security'
     | '/tickets'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/documents'
     | '/journey'
+    | '/language'
     | '/notifications'
     | '/security'
     | '/tickets'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/documents'
     | '/journey'
+    | '/language'
     | '/notifications'
     | '/security'
     | '/tickets'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   DocumentsRoute: typeof DocumentsRoute
   JourneyRoute: typeof JourneyRoute
+  LanguageRoute: typeof LanguageRoute
   NotificationsRoute: typeof NotificationsRoute
   SecurityRoute: typeof SecurityRoute
   TicketsRoute: typeof TicketsRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JourneyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/language': {
+      id: '/language'
+      path: '/language'
+      fullPath: '/language'
+      preLoaderRoute: typeof LanguageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notifications': {
       id: '/notifications'
       path: '/notifications'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   DocumentsRoute: DocumentsRoute,
   JourneyRoute: JourneyRoute,
+  LanguageRoute: LanguageRoute,
   NotificationsRoute: NotificationsRoute,
   SecurityRoute: SecurityRoute,
   TicketsRoute: TicketsRoute,
