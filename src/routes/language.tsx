@@ -1,4 +1,3 @@
-<<<<<<<<
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Languages } from "lucide-react";
 import { AppShell } from "@/components/carepath/AppShell";
@@ -66,4 +65,3 @@ function LanguagePage() {
     </AppShell>
   );
 }
->>>>>>>>
